@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bewerbung – Hamza Akhardid | Pflegefachmann</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf8f3;
+    --peach: #f5e6d8;
+    --sage: #d4e8d8;
+    --sage-dark: #7aaa8a;
+    --rose: #e8c5b8;
+    --rose-dark: #c07a65;
+    --text: #3a3230;
+    --text-light: #7a6e6a;
+    --white: #ffffff;
+    --card: rgba(255,255,255,0.85);
+    --radius: 24px;
+    --radius-sm: 14px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Background blobs */
+  body::before {
+    content: '';
+    position: fixed; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #f5ddd0 0%, transparent 70%);
+    border-radius: 50%; z-index: 0; pointer-events: none;
+  }
+  body::after {
+    content: '';
+    position: fixed; bottom: -200px; left: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #d4eedd 0%, transparent 70%);
+    border-radius: 50%; z-index: 0; pointer-events: none;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(253,248,243,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,180,165,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--rose-dark);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex; gap: 8px; list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 8px 18px;
+    border-radius: 50px;
+    transition: all 0.25s ease;
+    letter-spacing: 0.03em;
+  }
+  .nav-links a:hover {
+    background: var(--peach);
+    color: var(--rose-dark);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; text-align: center;
+    padding: 120px 40px 80px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--sage);
+    color: #3a7a52;
+    font-size: 0.8rem; font-weight: 700;
+    padding: 8px 20px; border-radius: 50px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before { content: '🌿'; font-size: 0.9rem; }
+
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 12px;
+    animation: fadeUp 0.7s ease 0.1s both;
+  }
+
+  .hero h1 span {
+    color: var(--rose-dark);
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-bottom: 40px;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+
+  .hero-contacts {
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    margin-bottom: 48px;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  .hero-contact-pill {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--card);
+    border: 1px solid rgba(200,180,165,0.3);
+    padding: 10px 20px; border-radius: 50px;
+    font-size: 0.9rem; color: var(--text);
+    box-shadow: 0 4px 16px rgba(180,140,120,0.1);
+    transition: transform 0.2s ease;
+  }
+  .hero-contact-pill:hover { transform: translateY(-2px); }
+  .hero-contact-pill .icon { font-size: 1rem; }
+
+  .hero-photo {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 4px solid white;
+    box-shadow: 0 8px 32px rgba(180,140,120,0.22);
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s ease 0.0s both;
+  }
+
+  .hero-scroll {
+    animation: fadeUp 0.7s ease 0.5s both;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--text-light); font-size: 0.8rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .scroll-dot {
+    width: 28px; height: 44px; border-radius: 14px;
+    border: 2px solid var(--rose);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 6px;
+  }
+  .scroll-dot::after {
+    content: '';
+    width: 5px; height: 10px; background: var(--rose-dark);
+    border-radius: 3px;
+    animation: scrollBounce 1.8s infinite;
+  }
+
+  /* SECTIONS */
+  section {
+    position: relative; z-index: 1;
+    padding: 100px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.75rem; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--rose-dark);
+    margin-bottom: 16px;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 28px; height: 2px; background: var(--rose-dark);
+    border-radius: 2px;
+  }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(200,180,165,0.25);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 8px 40px rgba(180,140,120,0.1);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 56px rgba(180,140,120,0.15);
+  }
+
+  /* ANSCHREIBEN */
+  .cover-letter-text {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text);
+  }
+  .cover-letter-text p { margin-bottom: 20px; }
+  .cover-letter-text .greeting { font-weight: 700; margin-bottom: 24px; }
+  .cover-letter-text .signature {
+    margin-top: 32px;
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--rose-dark);
+  }
+
+  /* CV – TIMELINE */
+  .cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 700px) { .cv-grid { grid-template-columns: 1fr; } }
+
+  .cv-column-title {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--rose-dark);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .cv-column-title .emoji { font-size: 1.2rem; }
+
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 28px;
+    padding-bottom: 28px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: 6px; top: 10px;
+    width: 2px; bottom: 0;
+    background: var(--peach);
+  }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-item::after {
+    content: '';
+    position: absolute; left: 0; top: 8px;
+    width: 14px; height: 14px;
+    background: var(--rose-dark);
+    border: 3px solid var(--cream);
+    border-radius: 50%;
+  }
+
+  .timeline-date {
+    font-size: 0.75rem; font-weight: 700;
+    color: var(--sage-dark);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .timeline-title {
+    font-weight: 700; font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .timeline-org {
+    font-size: 0.85rem; color: var(--text-light);
+    margin-bottom: 8px;
+  }
+  .timeline-bullets {
+    list-style: none; padding: 0;
+  }
+  .timeline-bullets li {
+    font-size: 0.82rem; color: var(--text-light);
+    padding: 2px 0 2px 14px;
+    position: relative;
+  }
+  .timeline-bullets li::before {
+    content: '·';
+    position: absolute; left: 0;
+    color: var(--rose-dark); font-size: 1.2rem; line-height: 1;
+  }
+
+  /* SKILLS */
+  .skills-row {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-top: 16px;
+  }
+  .skill-tag {
+    background: var(--peach);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 0.82rem; font-weight: 700;
+    color: var(--rose-dark);
+    border: 1px solid rgba(192,122,101,0.15);
+  }
+  .skill-tag.green {
+    background: var(--sage);
+    color: #3a7a52;
+    border-color: rgba(122,170,138,0.2);
+  }
+
+  /* PERSONAL INFO */
+  .personal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .personal-item {
+    background: var(--peach);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+  }
+  .personal-item .label {
+    font-size: 0.72rem; font-weight: 800;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--rose-dark);
+    margin-bottom: 4px;
+  }
+  .personal-item .value {
+    font-size: 0.92rem; font-weight: 600;
+    color: var(--text);
+  }
+
+  /* ZERTIFIKATE */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .cert-card {
+    background: var(--card);
+    border: 1px solid rgba(200,180,165,0.25);
+    border-radius: var(--radius-sm);
+    padding: 24px 28px;
+    box-shadow: 0 4px 20px rgba(180,140,120,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(180,140,120,0.14);
+  }
+
+  .cert-icon {
+    font-size: 1.8rem; margin-bottom: 4px;
+  }
+  .cert-title {
+    font-weight: 700; font-size: 0.98rem;
+    color: var(--text);
+  }
+  .cert-org {
+    font-size: 0.82rem; color: var(--text-light);
+  }
+  .cert-date {
+    font-size: 0.75rem; font-weight: 700;
+    color: var(--sage-dark);
+    letter-spacing: 0.05em; text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .cert-badge {
+    display: inline-block;
+    background: var(--sage);
+    color: #3a7a52;
+    font-size: 0.72rem; font-weight: 800;
+    padding: 3px 10px; border-radius: 50px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    width: fit-content;
+  }
+
+  /* KONTAKT */
+  .kontakt-card {
+    display: flex; flex-direction: column; gap: 20px;
+    align-items: center; text-align: center;
+  }
+  .kontakt-card .big-name {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    color: var(--text);
+  }
+  .kontakt-links {
+    display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+  }
+  .kontakt-link {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--peach);
+    border-radius: var(--radius-sm);
+    padding: 14px 24px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600; font-size: 0.95rem;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(200,160,140,0.2);
+  }
+  .kontakt-link:hover {
+    background: var(--rose-dark);
+    color: white;
+    transform: translateY(-2px);
+  }
+  .kontakt-link .k-icon { font-size: 1.2rem; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-light);
+    font-size: 0.82rem;
+    position: relative; z-index: 1;
+    border-top: 1px solid rgba(200,180,165,0.2);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    60%       { transform: translateY(14px); opacity: 0; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* Mobile nav */
+  @media (max-width: 600px) {
+    nav { padding: 14px 20px; }
+    .nav-links { gap: 4px; }
+    .nav-links a { padding: 6px 12px; font-size: 0.78rem; }
+    section { padding: 70px 20px; }
+    .card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Hamza Akhardid</div>
+  <ul class="nav-links">
+    <li><a href="#anschreiben">Anschreiben</a></li>
+    <li><a href="#lebenslauf">Lebenslauf</a></li>
+    <li><a href="#zertifikate">Zertifikate</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Bewerbung als Pflegefachmann</div>
+  <h1>Hamza <span>Akhardid</span></h1>
+  <p class="hero-subtitle">Angehender Pflegefachmann · Deutsch B2 · Engagiert & Motiviert</p>
+
+  <div class="hero-contacts">
+    <div class="hero-contact-pill"><span class="icon">✉️</span> Hamzaakhardid6@gmail.com</div>
+    <div class="hero-contact-pill"><span class="icon">📞</span> +212 611 932 819</div>
+    <div class="hero-contact-pill"><span class="icon">📍</span> Essaouira, Marokko</div>
+    <div class="hero-contact-pill"><span class="icon">🎂</span> 21.09.1998</div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-dot"></div>
+    Scrollen
+  </div>
+</div>
+
+<!-- ANSCHREIBEN -->
+<section id="anschreiben">
+  <div class="reveal">
+    <div class="section-label">Anschreiben</div>
+    <h2 class="section-title">Mein Motivationsschreiben</h2>
+    <div class="card">
+      <div class="cover-letter-text">
+        <p class="greeting">Sehr geehrte Damen und Herren,</p>
+        <p>bei der Durchsicht Ihres Online-Auftritts konnte ich mir bereits ein gutes Bild davon machen, wie es wäre, ein Teil Ihres Teams zu werden. Mit diesem Schreiben möchte ich Ihnen die Möglichkeit geben, mich und meine Motivation besser kennenzulernen.</p>
+        <p>Mit der richtigen Einstellung lässt sich vieles erreichen. Während meiner Praktika im Pflegebereich habe ich gemerkt, dass dieser Beruf meine wahre Leidenschaft ist, da ich Menschen in schwierigen Situationen helfen möchte.</p>
+        <p>Während meiner Praktika habe ich nicht nur wichtige Einblicke in die Pflege erhalten, sondern auch festgestellt, dass diese Ausbildung sehr gut zu meinen persönlichen und beruflichen Interessen passt. Besonders interessiert mich die Möglichkeit, mehr über den menschlichen Körper zu lernen, Krankheitsbilder zu verstehen und Bewohner sowie Patienten zu unterstützen und zu pflegen.</p>
+        <p>Diese Erfahrungen haben meinen Wunsch noch stärker gemacht, beruflich im Pflegebereich zu arbeiten. Ihre Werte und Ihr Engagement für eine gute Ausbildung finde ich sehr wichtig. Deshalb bin ich überzeugt, dass ich mit meinen Fähigkeiten und meiner Motivation gut in Ihr Team passe.</p>
+        <p>Die Chance, eine sinnvolle Arbeit mit Zukunft zu erlernen, motiviert mich sehr. Gerne würde ich Ihnen meine Motivation und Qualifikationen in einem persönlichen Gespräch näher vorstellen.</p>
+        <p>Vielen Dank für Ihre Zeit und das Lesen meiner Bewerbung. Über eine Einladung zu einem Gespräch würde ich mich sehr freuen.</p>
+        <p class="signature">Mit freundlichen Grüßen,<br>Hamza Akhardid</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEBENSLAUF -->
+<section id="lebenslauf">
+  <div class="reveal">
+    <div class="section-label">Lebenslauf</div>
+    <h2 class="section-title">Mein Werdegang</h2>
+
+    <!-- Persönliche Daten -->
+    <div class="card" style="margin-bottom: 32px;">
+      <div class="cv-column-title"><span class="emoji">👤</span> Persönliche Daten</div>
+      <div class="personal-grid">
+        <div class="personal-item">
+          <div class="label">Geburtsdatum</div>
+          <div class="value">21.09.1998</div>
+        </div>
+        <div class="personal-item">
+          <div class="label">Familienstand</div>
+          <div class="value">Ledig</div>
+        </div>
+        <div class="personal-item">
+          <div class="label">Staatsangehörigkeit</div>
+          <div class="value">Marokkanisch</div>
+        </div>
+        <div class="personal-item">
+          <div class="label">Führerschein</div>
+          <div class="value">Klasse B</div>
+        </div>
+        <div class="personal-item">
+          <div class="label">Wohnort</div>
+          <div class="value">Essaouira, Marokko</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cv-grid">
+        <!-- Berufserfahrung -->
+        <div>
+          <div class="cv-column-title"><span class="emoji">💼</span> Beruflicher Werdegang</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Jan – Feb 2026</div>
+              <div class="timeline-title">Pflegehelfer (Praktikant)</div>
+              <div class="timeline-org">Privat­arzt Dr. Naziha Daali</div>
+              <ul class="timeline-bullets">
+                <li>Vitalzeichen kontrollieren</li>
+                <li>Unterstützung bei der Körperpflege</li>
+                <li>Hilfe bei der Ernährung</li>
+                <li>Unterstützung bei Medikamentengabe & Dokumentation</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Sep – Okt 2024</div>
+              <div class="timeline-title">Pflegehelfer (Praktikant)</div>
+              <div class="timeline-org">Gesundheitszentrum Essaouira</div>
+              <ul class="timeline-bullets">
+                <li>Vitalzeichen kontrollieren</li>
+                <li>Unterstützung bei der Körperpflege</li>
+                <li>Hilfe bei der Ernährung</li>
+                <li>Unterstützung bei Medikamentengabe & Dokumentation</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Feb – Apr 2023</div>
+              <div class="timeline-title">Notfallsanitäter (Praktikant)</div>
+              <div class="timeline-org">Rettungsdienst Gemeinde Imintlite</div>
+              <ul class="timeline-bullets">
+                <li>Krankentransport</li>
+                <li>Unterstützung der Rettungssanitäter</li>
+                <li>Begleitung von Patienten</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ausbildung -->
+        <div>
+          <div class="cv-column-title"><span class="emoji">🎓</span> Ausbildung</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Seit Dez 2021</div>
+              <div class="timeline-title">Deutsch B2 (telc)</div>
+              <div class="timeline-org">Abschluss: 05.03.2026</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2019 – 2020</div>
+              <div class="timeline-title">Universität Ibn Zohr Agadir</div>
+              <div class="timeline-org">Anglistik – bestanden</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Jun 2025</div>
+              <div class="timeline-title">Externes Abitur</div>
+              <div class="timeline-org">Gymnasium</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Jun 2016</div>
+              <div class="timeline-title">Abitur – Literatur</div>
+              <div class="timeline-org">Gymnasium Almajd, Essaouira</div>
+            </div>
+          </div>
+
+          <!-- Sprachen & Skills -->
+          <div style="margin-top: 32px;">
+            <div class="cv-column-title"><span class="emoji">🌍</span> Sprachen</div>
+            <div class="skills-row">
+              <span class="skill-tag green">Amazigh – Muttersprache</span>
+              <span class="skill-tag green">Deutsch – B2</span>
+              <span class="skill-tag green">Englisch – Fließend</span>
+              <span class="skill-tag green">Französisch – Gute Kenntnisse</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <div class="cv-column-title"><span class="emoji">💻</span> Tools</div>
+            <div class="skills-row">
+              <span class="skill-tag">Microsoft Word</span>
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">PowerPoint</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZERTIFIKATE -->
+<section id="zertifikate">
+  <div class="reveal">
+    <div class="section-label">Zertifikate</div>
+    <h2 class="section-title">Meine Nachweise & Zertifikate</h2>
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <div class="cert-icon">🇩🇪</div>
+        <div class="cert-badge">Sprachzertifikat</div>
+        <div class="cert-title">telc Deutsch B2</div>
+        <div class="cert-org">Atlas-Bildungs-Center e.V. – Casablanca</div>
+        <div class="cert-date">05. März 2026 · ID: telc-7bDOMe2</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-badge">Bildungsabschluss</div>
+        <div class="cert-title">Sekundarschulabschluss (Abitur)</div>
+        <div class="cert-org">Gymnasium Almajd, Essaouira – Literatur</div>
+        <div class="cert-date">20. Juni 2016 · G135304691</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🏛️</div>
+        <div class="cert-badge">Hochschule</div>
+        <div class="cert-title">Abschluss 1. Studienjahr – Anglistik</div>
+        <div class="cert-org">Universität Ibn Zohr Agadir</div>
+        <div class="cert-date">2019/2020</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🏥</div>
+        <div class="cert-badge">Praktikum</div>
+        <div class="cert-title">Pflegehelfer – Praktikumsbescheinigung</div>
+        <div class="cert-org">Provinzkrankenhaus Essaouira – Intensivstation</div>
+        <div class="cert-date">45 Tage · Mai 2024</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🚑</div>
+        <div class="cert-badge">Praktikum</div>
+        <div class="cert-title">Notfallsanitäter – Praktikumsbescheinigung</div>
+        <div class="cert-org">Rettungsdienst Gemeinde Imi N'tlite</div>
+        <div class="cert-date">Feb – Apr 2023</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🍽️</div>
+        <div class="cert-badge">Weiterbildung</div>
+        <div class="cert-title">Mangelernährung bei älteren Menschen</div>
+        <div class="cert-org">Med. Universität Graz – iMooX · 5/5 Lektionen</div>
+        <div class="cert-date">05. Juli 2025 · 6 ÖGKV Punkte</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🩺</div>
+        <div class="cert-badge">Weiterbildung</div>
+        <div class="cert-title">First Aid for Adults</div>
+        <div class="cert-org">IFRC Learning Platform</div>
+        <div class="cert-date">25. Juni 2025 · TP1-S15-0142</div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">📚</div>
+        <div class="cert-badge">Zertifikat</div>
+        <div class="cert-title">TEFL – Teaching English as a Foreign Language</div>
+        <div class="cert-org">Teacher Record – 120 Stunden · Distinction</div>
+        <div class="cert-date">Sep 2024 · TR5095283060</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="reveal">
+    <div class="section-label">Kontakt</div>
+    <h2 class="section-title">Nehmen Sie Kontakt auf</h2>
+    <div class="card">
+      <div class="kontakt-card">
+        <div class="big-name">Hamza Akhardid</div>
+        <p style="color: var(--text-light); max-width: 460px; text-align: center;">
+          Ich freue mich sehr über Ihre Nachricht und stehe für ein persönliches Gespräch jederzeit zur Verfügung.
+        </p>
+        <div class="kontakt-links">
+          <a href="mailto:Hamzaakhardid6@gmail.com" class="kontakt-link">
+            <span class="k-icon">✉️</span> Hamzaakhardid6@gmail.com
+          </a>
+          <a href="tel:+212611932819" class="kontakt-link">
+            <span class="k-icon">📞</span> +212 611 932 819
+          </a>
+          <div class="kontakt-link" style="cursor: default;">
+            <span class="k-icon">📍</span> Essaouira, Marokko
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Hamza Akhardid · Bewerbung als Pflegefachmann
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
